@@ -1,28 +1,38 @@
 import { Modal } from '@mantine/core'
+import { Record } from 'pocketbase'
 import React from 'react'
-import { useParams } from 'react-router'
+import { useOutletContext, useParams } from 'react-router'
+import { OutletContext } from '../../App'
 import { array } from '../../db'
 import { addToCart } from '../../redux/slices/cartSlice'
 import { useDispatch, useSelector } from '../../redux/store'
 import { Flowers as IFlowers, IFlower } from '../../types/Flower.type'
+import { getUrl, pb } from '../../utils/pocketbase'
 
 function Flowers() {
+
+
+  const {flowers} = useOutletContext<OutletContext>()
 
   const {name} = useParams()
   const dispatch = useDispatch()
   const {cartItems} = useSelector(state => state.cart)
 
-  const [flowers, setFlowers] = React.useState<IFlowers>()
+  const currentFlowers = flowers?.filter(e => {
+    return e?.name === name
+  })?.[0]
 
-  const label = array.find(e => {
+  // const [flowers, setFlowers] = React.useState<IFlowers>()
+
+  const label = flowers?.find((e: any) => {
     return e.name === name
   })?.title
 
-  React.useEffect(() => {
-    setFlowers(array.find(e => {
-      return e.name === name
-    }))
-  }, [])
+  // React.useEffect(() => {
+  //   setFlowers(array.find(e => {
+  //     return e.name === name
+  //   }))
+  // }, [])
 
   const [modal, setModal] = React.useState(false)
   const [flower, setFlower] = React.useState<IFlower>({} as IFlower)
@@ -40,7 +50,6 @@ function Flowers() {
     return e.id === flower.id
   })
 
-
   return (
     <>
       <div className="w-full">
@@ -48,11 +57,11 @@ function Flowers() {
           <div className="space-y-10 mt-8">
             <h3>{label}</h3>
             <div className='grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-10 lg:gap-y-14'>
-              {flowers?.flowers.map((flower, i) => {
+              {currentFlowers?.expand?.flowers?.map((flower: any, i: number) => {
                 return (
                   <div key={i} onClick={() => handleFlowerClick(flower)}>
                     <h3 className='min-h-[40px] leading-5'>{flower.name}</h3>
-                    <img src={flower.image} alt="" className='w-full h-[473px] aspect-square object-cover' />
+                    <img src={getUrl(flower, flower?.image)} alt="" className='w-full h-[473px] aspect-square object-cover' />
                   </div>
                 )
               })}
@@ -70,7 +79,7 @@ function Flowers() {
       >
         <div className='h-full'>
           <img  
-            src={flower.image}
+            src={getUrl(flower, flower?.image)}
             className='aspect-video object-cover mb-4'
           />
           <div className='p-4 space-y-4'>

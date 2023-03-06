@@ -1,4 +1,5 @@
 import React from 'react'
+import { pb } from '../utils/pocketbase'
 import { loginSchema, merged } from "../utils/validation"
 
 export type FormChangeEvent = React.ChangeEvent<HTMLInputElement | HTMLButtonElement | HTMLFormElement>
@@ -27,6 +28,7 @@ export default function useForm() {
   const [values, setValues] = React.useState({
     name: '',
     tel: '',
+    number: '',
     email: '',
     password: '',
     password_confirmation: '',
@@ -36,6 +38,7 @@ export default function useForm() {
   const [errors, setErrors] = React.useState<ErrorsProps | any>({
     name: [],
     email: [],
+    number: [],
     password: [],
     password_confirmation: [],
     other: [],
@@ -60,93 +63,69 @@ export default function useForm() {
   }
 
   const handleSubmit = {
-    // register: (event: FormChangeEvent) => {
-    //   event.preventDefault();
-    //   setErrors({})
-    //   setLoading(true)
-    //   merged.validate(values, { abortEarly: false })
-    //   .then(e => {
-    //     createUserWithEmailAndPassword(auth, values.email, values.password)
-    //     .then(async (e: any) => {
-    //       await updateProfile(e.user, {
-    //         displayName: values.name
-    //       })
-    //       await setDoc(doc(db, 'users', e.user.uid!), {
-    //         displayName: values.name,
-    //         email: values.email, 
-    //         created_at: serverTimestamp(),
-    //         uid: e.user.uid
-    //       })
-    //       sendEmailVerification(e.user)
-    //       .then(() => {
-    //         setLoading(false)
-    //         alert(`Регистрация прошла успешно! Письмо с подтверждением было выслано на почту ${e.user.email}`)
-    //       })
-    //       .catch((e: any) => {
-    //         console.log(e);
-    //         setLoading(false)
-    //         alert(`Регистрация прошла успешно! Не удалось отправить письмо с подтверждением на почту ${e.user.email}`)
-    //       })
-    //     })
-    //     .catch((e: any) => {
-    //       if (e.code === 'auth/too-many-requests') {
-    //         setErrors({ ...errors, other: ['Сликом много попыток попробуйте чуть позже'] })
-    //       }
-    //       if (e.code === 'auth/email-already-in-use') {
-    //         setErrors({ ...errors, other: ['Пользователь с такой почтой уже существует'] })
-    //       }
-    //       setLoading(false)
-    //       console.log(e);
-    //     })
-    //   })   
-    //   .catch(e => {
-    //     yupErrorToErrorObject(e)
-    //     setLoading(false)
-    //   })
-    // },
-    // login: async (event: FormChangeEvent) => {
-    //   event.preventDefault();
-    //   setErrors({})
-    //   setLoading(true)
-    //   loginSchema.validate({ email: values.email, password: values.password }, { abortEarly: false })
-    //   .then(e => {
-    //     signInWithEmailAndPassword(auth, values.email, values.password)
-    //     .then((e: any) => {
-    //       setLoading(false)
-    //       alert(`Вы успешно вошли в систему как ${e.user.displayName}`)
-    //     })
-    //     .catch((e: any) => {
-    //       if (e.code === 'auth/too-many-requests') {
-    //         setErrors({ ...errors, other: ['Слишком много попыток попробуйте чуть позже'] })
-    //       }
-    //       if (e.code === 'auth/user-not-found') {
-    //         setErrors({ ...errors, other: ['Пользователь не найден'] })
-    //       }
-    //       if (e.code === 'auth/wrong-password') {
-    //         setErrors({ ...errors, password: ['Неверный пароль'] })
-    //       }
-    //       console.log(e);
-    //       setLoading(false)
-    //     })
-    //   })
-    //   .catch(e => {
-    //     yupErrorToErrorObject(e)
-    //     setLoading(false)
-    //   })
-    // },
-    // // loginWithGoogle: async (event: FormChangeEvent) => {
-    // //   event.preventDefault();
-    // //   setErrors({})
-    // //   setLoading(true)
-    // // },
-    // resetPassword: async (event: FormChangeEvent) => {
+    register: (event: FormChangeEvent) => {
+      event.preventDefault();
+      setErrors({})
+      setLoading(true)
+      merged.validate(values, { abortEarly: false })
+      .then(e => {
+        pb.collection('users').create({
+          username: values.name, 
+          email: values.email,
+          emailVisibility: true,
+          password: values.password,
+          passwordConfirm: values.password_confirmation,
+          name: values.name,
+          number: values.number
+        })
+        .then(async (e: any) => {
+          alert(`Регистрация прошла успешно!`)
+          setLoading(false)
+          window.location.reload()
+        })
+        .catch(err => {
+          setLoading(false)
+        })
+      })   
+      .catch(e => {
+        yupErrorToErrorObject(e)
+        setLoading(false)
+      })
+    },
+    login: async (event: FormChangeEvent) => {
+      event.preventDefault();
+      setErrors({})
+      setLoading(true)
+      loginSchema.validate({ email: values.email, password: values.password }, { abortEarly: false })
+      .then(e => {
+        pb.collection('users').authWithPassword(values.email, values.password)
+        .then((e: any) => {
+          alert(`Вы успешно вошли в систему как ${values.email}`)
+          window.location.reload()
+          setLoading(false)
+        })
+        .catch((e: any) => {
+          setLoading(false)
+        })
+      })
+      .catch(e => {
+        yupErrorToErrorObject(e)
+        setLoading(false)
+      })
+    },
+    // loginWithGoogle: async (event: FormChangeEvent) => {
     //   event.preventDefault();
     //   setErrors({})
     //   setLoading(true)
     // },
-    // singout: (event: FormChangeEvent) => {
-    //   event.preventDefault();
-    // }
+    resetPassword: async (event: FormChangeEvent) => {
+      event.preventDefault();
+      setErrors({})
+      setLoading(true)
+    },
+    singout: (event: FormChangeEvent) => {
+      event.preventDefault();
+    }
   }
 
   return {

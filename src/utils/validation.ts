@@ -1,5 +1,7 @@
 import * as yup from 'yup'
 
+const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
 
 const loginSchema = yup.object({
   email: yup.string().email("Это не почта").required("Почта обязательна для заполнения"),
@@ -8,6 +10,7 @@ const loginSchema = yup.object({
 
 const optionalSchema = yup.object().shape({
   name: yup.string().min(2, "Слишком короткое имя").required("Имя обязательно для заполнения"),
+  number: yup.string().matches(phoneRegExp, 'Введите корректный номер телефона'),
   password_confirmation: yup.string().oneOf([yup.ref('password'), null!], 'Пароли не совпадают')
 })
 

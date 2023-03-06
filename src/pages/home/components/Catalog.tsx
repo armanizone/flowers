@@ -1,9 +1,13 @@
+import { Record } from 'pocketbase'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { array } from '../../../db'
-import { Flowers, IFlower } from '../../../types/Flower.type'
+import { getUrl } from '../../../utils/pocketbase'
 
-const Catalog = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>((props, ref) => {
+interface CatalogProps {
+  flowers?: any[]
+}
+
+const Catalog = React.forwardRef<HTMLDivElement, React.PropsWithChildren<CatalogProps>>((props, ref) => {
 
   return (
     <>
@@ -21,12 +25,12 @@ const Catalog = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>
           </div>
           <div className="container">
             <div className='grid grid-cols-2 lg:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-10 lg:gap-y-14'>
-              {array.map((e, i) => {
+              {props.flowers?.map((e, i) => {
                 return (
                   <div key={i}>
                     <h3 className='min-h-[40px] leading-5'>{e.title}</h3>
                     <Link to={`/flowers/${e.name}`}>
-                      <img src={e.image} alt="" className='w-full min-h-[200px]' />
+                      <img src={getUrl(e, e?.image)} alt="" className='w-full min-h-[200px]' />
                     </Link>
                   </div>
                 )
@@ -35,50 +39,6 @@ const Catalog = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>
           </div>
         </div>
       </div>
-      {/* <Modal
-        opened={modal}
-        onClose={() => setModal(false)}
-        centered
-      >
-        <Carousel
-          loop
-          mx='auto'
-          slideGap='xs'
-          // draggable={false}
-          getEmblaApi={setEmbla}
-          withControls={false}
-        >
-          {flowers?.flowers?.map((flower: IFlower, i: number) => {
-            return (
-              <Carousel.Slide 
-                key={i} 
-              >
-                <div className='space-y-4 h-full'>
-                  <img  
-                    src={flower.image}
-                    className='object-cover aspect-video'
-                  />
-                  <h3 className='grow'>
-                    {flower.name}
-                  </h3>
-                  <p className='description mb-auto grow'>
-                    {flower.description}
-                  </p>
-                  <h3 >
-                    {flower.price} т
-                  </h3>
-                  <button 
-                    className='w-full'
-                    onClick={() => handleAddtoCart(flower)}
-                  >
-                    Купить
-                  </button>
-                </div>
-              </Carousel.Slide>
-            )
-          })}
-        </Carousel>
-      </Modal> */}
     </>
   )
 }) 

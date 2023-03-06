@@ -50,9 +50,9 @@ function Header() {
                     каталог
                   </span>
                 </Link>
-                <Link to={'about'}>
+                <Link to={'projects'}>
                   <span className='font-medium text-gray-200'>
-                    о нас
+                    проекты
                 </span>
                 </Link>
                 <Link to={'contacts'}>
@@ -60,11 +60,11 @@ function Header() {
                     контакты
                   </span>
                 </Link>
-                {/* <Link to={'/cart'}>
+                <Link to={'/cart'}>
                   <span className='font-medium text-gray-200'>
                     корзина
                   </span>
-                </Link> */}
+                </Link>
               </nav>
             )}
           </div>
@@ -75,17 +75,22 @@ function Header() {
           opened={isDrawerOpen} 
           onClose={handleDrawerMenuClose} 
           position='right'
-          size={'70%'}
+          size={'50%'}
         >
           <nav className='flex flex-col gap-y-4 px-4 uppercase'>
+            <Link to={'/'}>
+              <span className='font-medium text-slate-700'>
+                главная
+              </span>
+            </Link>
             <Link to={'/catalog'}>
               <span className='font-medium text-slate-700'>
                 каталог
               </span>
             </Link>
-            <Link to={'/about'}>
+            <Link to={'/projects'}>
               <span className='font-medium text-slate-700'>
-                о нас
+                проекты
               </span>
             </Link>
             <Link to={'/contacts'}>
@@ -93,9 +98,9 @@ function Header() {
                 контакты
               </span>
             </Link>
-            <Link to={'/profile'}>
+            <Link to={'/cart'}>
               <span className='font-medium text-slate-700'>
-                профиль
+                корзина
               </span>
             </Link>
           </nav>

@@ -18,7 +18,7 @@ function Hero() {
               <div className='flex flex-col md:flex-row md:justify-between md:items-end'>
                 <p className='description mb-5 md:mb-0 text-gray-200'>
                 Это цветочный, вдохновлённый невероятной красотой садов. 
-Главными героями наших букетов являются экзотические цветы со всех уголков мира. Каждый цветок уникален по-своему, а флористы умело это доказывают.
+                Главными героями наших букетов являются экзотические цветы со всех уголков мира. Каждый цветок уникален по-своему, а флористы умело это доказывают.
                 </p>
                 <div className='flex flex-col gap-y-5 lg:flex-row lg:space-x-20'>
                   <Link to='catalog'>
@@ -26,7 +26,7 @@ function Hero() {
                       Перейти в каталог
                     </span>
                   </Link>
-                  <a>
+                  <a href='https://wa.me/87760009399' target='_blank'>
                     <span className='underline text-gray-200'>
                     Связаться с менеджером
                     </span>

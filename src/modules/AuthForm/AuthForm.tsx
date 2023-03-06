@@ -1,20 +1,20 @@
 import React from 'react'
-import ForgotPassword from './components/ForgotPassword'
+import useAuth from '../../hooks/useAuth'
 import Login from './components/Login'
 import Signup from './components/Signup'
 
 
-export type CurrentForm = 'login' | 'signup' | 'forgot' 
+export type CurrentForm = 'login' | 'signup' 
 
 function AuthForm() {
 
-  const [current, setCurrent] = React.useState<CurrentForm>("login")
+  const { logged } = useAuth()
+  const [current, setCurrent] = React.useState<CurrentForm>("signup")
 
   return (
     <>
       {(current === "login") && <Login setCurrent={setCurrent}/>}
       {(current === "signup") && <Signup setCurrent={setCurrent}/>}
-      {(current === "forgot") && <ForgotPassword setCurrent={setCurrent}/>}
     </>
   )
 

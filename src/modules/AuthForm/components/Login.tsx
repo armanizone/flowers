@@ -9,7 +9,7 @@ function Login({setCurrent}: {setCurrent: (val: CurrentForm) => void}) {
 
   return (
     <form 
-      // onSubmit={(e: React.ChangeEvent<HTMLFormElement>) => handleSubmit.login(e)}
+      onSubmit={(e: React.ChangeEvent<HTMLFormElement>) => handleSubmit.login(e)}
       className='space-y-4'
     >
       <TextInput
@@ -37,13 +37,7 @@ function Login({setCurrent}: {setCurrent: (val: CurrentForm) => void}) {
           className='underline text-blue-400 cursor-pointer' 
           onClick={() => setCurrent('signup')}
         >
-          Зарегистрироваться
-        </span>
-        <span 
-          className='underline text-blue-400 cursor-pointer' 
-          onClick={() => setCurrent('forgot')}
-        >
-          Забыли пароль?
+          Первый раз тут?
         </span>
       </p>
       <Button

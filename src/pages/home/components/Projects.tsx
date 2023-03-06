@@ -25,8 +25,7 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
                 проекты
               </h2>
               <p className='description'>
-                В нашем саду — это редкое сочетание уникального художественного видения и высокого уровня сервиса. Благодаря этому мы успешно реализуем задачи любой сложности: создаем декоративные оформления фасадов, мероприятий, подбираем 
-                растения для интерьера и улицы.
+              реализует идеи по декорации Ваших celebrations, мы прислушиваемся к каждому желанию, просто сообщите. Мы занимаемся оформлением фасадов, витрин, помещений и уличных мероприятий
               </p>
             </div>
             <div className="space-y-8 lg:space-y-16">
@@ -51,7 +50,7 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
               <div className='-mt-[50%] row-start-2 col-start-2 lg:ml-16'>
                 <div className='space-y-6'>
                   <img src="https://thumb.tildacdn.com/tild6533-6134-4239-a231-663064326434/-/cover/360x456/center/center/-/format/webp/IMG_7199-4.png" className=' w-full' alt="" />
-                  <div className="description">Осенний фасад @sobran_v_sadu</div>
+                  <div className="description">Осенний фасад @v_nashem_sadu</div>
                 </div>
               </div>
 
@@ -77,7 +76,7 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
             <div className='flex flex-col justify-end lg:ml-16 order-3 lg:order-none col-span-2 lg:col-span-1 mb-10 lg:mb-24'>
               <div className='space-y-6 lg:space-y-10'>
                 <img src="https://thumb.tildacdn.com/tild6533-6134-4239-a231-663064326434/-/cover/360x456/center/center/-/format/webp/IMG_7199-4.png" className='max-w-[300px] w-full' alt="" />
-                <div className="description">Осенний фасад @sobran_v_sadu</div>
+                <div className="description">Осенний фасад @v_nashem_sadu</div>
               </div>
             </div>
           )}
@@ -94,7 +93,7 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
           <div className='space-y-16 lg:space-y-56 col-span-2 order-6 lg:order-none'>
             <div className='space-y-6 lg:space-y-10'>
               <img src="https://thumb.tildacdn.com/tild3262-3833-4661-a463-323366306263/-/cover/760x420/center/center/-/format/webp/photo.png" className='w-full' alt="" />
-              <p className='description'>Новогодний фасад мастерской @sobran_v_sadu</p>
+              <p className='description'>Новогодний фасад мастерской @v_nashem_sadu</p>
             </div>
             <button className='text-sm lg:text-base border border-slate-700 block w-full p-4 text-slate-700 font-medium hover:bg-black hover:text-white transition-all duration-300 ease-in-out'>Получить расчет индивидуального проекта</button>
           </div>

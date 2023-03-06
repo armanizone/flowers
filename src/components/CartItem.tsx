@@ -7,6 +7,7 @@ import { addToCart, removeFromCart } from '../redux/slices/cartSlice'
 import { useDispatch } from '../redux/store'
 
 import { ActionIcon } from '@mantine/core'
+import { getUrl } from '../utils/pocketbase'
 
 function CartItem({product}: {product: IFlower}) {
 
@@ -23,10 +24,10 @@ function CartItem({product}: {product: IFlower}) {
   }
 
   return (
-    <div className='flex justify-between items-center py-6 border-b border-black  px-4'>
-      <div className='flex gap-4 max-w-md max-h-[120px] overflow-hidden flex-grow'>
+    <div className='flex flex-col md:flex-row justify-between items-center py-6 border-b border-black md:px-4 gap-4 md:gap-8'>
+      <div className='flex mr-auto gap-4 max-w-md max-h-[120px] overflow-hidden flex-grow'>
         <img 
-          src={product.image} 
+          src={getUrl(product, product.image)} 
           alt={product.name} 
           className='aspect-square max-w-[120px] object-cover' 
         />
@@ -35,32 +36,36 @@ function CartItem({product}: {product: IFlower}) {
             {product.name}
           </h3>
           <Text lineClamp={4}>
-            {product.description}
+            <span className='text-sm md:text-base'>
+              {product.description}
+            </span>
           </Text>
         </div>
       </div>
-      <p className='font-semibold text-lg ' >
-        {product.price}$
-      </p>
-      <div className='flex items-center gap-4'>
-        <ActionIcon 
-          onClick={() => remove(product)}
-          size={20}
-        >
-          <AiOutlineMinus className='text-xl'/>
-        </ActionIcon>
-        <span>
-          {product.count}
-        </span>
-        <ActionIcon 
-          onClick={() => addMore(product)}
-          size={20}
-        >
-          <AiOutlinePlus className='text-xl'/>
-        </ActionIcon>
-      </div>
-      <div className='font-semibold text-lg'>
-        {total}$
+      <div className='flex justify-between items-center w-full'>
+        <p className='font-semibold text-lg ' >
+          {product.price} ₸
+        </p>
+        <div className='flex items-center gap-4'>
+          <ActionIcon 
+            onClick={() => remove(product)}
+            size={20}
+          >
+            <AiOutlineMinus className='text-xl'/>
+          </ActionIcon>
+          <span>
+            {product.count}
+          </span>
+          <ActionIcon 
+            onClick={() => addMore(product)}
+            size={20}
+          >
+            <AiOutlinePlus className='text-xl'/>
+          </ActionIcon>
+        </div>
+        <div className='font-semibold text-lg'>
+          {total} ₸
+        </div>
       </div>
     </div>
   )
