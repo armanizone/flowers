@@ -11,14 +11,14 @@ function Hero() {
               <h1 
                 className='uppercase font-[500] text-[54px] 
                 md:text-7xl lg:text-[99px] xl:text-[130px] tracking-widest 
-                leading-[50px] text-white lg:leading-[130px]'
+                leading-[50px] text-white lg:leading-[130px] mb-6 lg:mb-8'
               >
                 В нашем саду
                 </h1>
               <div className='flex flex-col md:flex-row md:justify-between md:items-end'>
                 <p className='description mb-5 md:mb-0 text-gray-200'>
-                  В нашем саду — лучшие в городе цветы, букеты, доставка. Магазин на Петровке 24 и большая 
-                  творческая мастерская в Хамовниках. Каждый букет от В нашем саду — уникален, вы его запомните.
+                Это цветочный, вдохновлённый невероятной красотой садов. 
+Главными героями наших букетов являются экзотические цветы со всех уголков мира. Каждый цветок уникален по-своему, а флористы умело это доказывают.
                 </p>
                 <div className='flex flex-col gap-y-5 lg:flex-row lg:space-x-20'>
                   <Link to='catalog'>

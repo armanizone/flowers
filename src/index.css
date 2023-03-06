@@ -13,15 +13,14 @@
   h3 {
     @apply text-base sm:text-lg md:text-2xl uppercase font-medium 
   }
-
 }
 
 @layer components {
   .description {
     @apply max-w-lg text-gray-500 font-medium text-base sm:text-lg tracking-tight leading-6
   }
+  
 }
-
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -29,4 +28,8 @@
 
 body {
   @apply bg-gray-200
+}
+
+.mantine-Button-label {
+  font-weight: 400;
 }

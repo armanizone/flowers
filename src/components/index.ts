@@ -1,7 +1,5 @@
-import BurgerMenu from "./BurgerMenu";
-import Drawer from "./Drawer";
+import CartItem from "./CartItem";
 
 export { 
-  BurgerMenu,
-  Drawer,
+  CartItem,
 }

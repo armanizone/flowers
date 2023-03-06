@@ -1,7 +1,7 @@
-import { useMediaQuery } from '@mantine/hooks';
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { BurgerMenu, Drawer } from '../components';
+import { Burger, Drawer } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
+import { Link, useLocation } from 'react-router-dom'
 
 function Header() {
 
@@ -17,6 +17,12 @@ function Header() {
     setIsDrawerOpen(false);
   }
 
+  const { pathname } = useLocation()
+
+  React.useEffect(() => {
+    setIsDrawerOpen(false)
+  }, [pathname])
+
   return (
     <>
       <div className='w-full bg-black'>
@@ -30,12 +36,16 @@ function Header() {
                 </a>
               )}
               {matches && (
-                <BurgerMenu handleClick={handleBurgerMenuClick} />
+                <Burger 
+                  opened={isDrawerOpen} 
+                  onClick={handleBurgerMenuClick}
+                  color='white'
+                />
               )}
             </div>
             {!matches && (
               <nav className='space-x-12'>
-                <Link to={'/catalog'}>
+                <Link to={'catalog'}>
                   <span className='font-medium text-gray-200'>
                     каталог
                   </span>
@@ -50,13 +60,46 @@ function Header() {
                     контакты
                   </span>
                 </Link>
+                {/* <Link to={'/cart'}>
+                  <span className='font-medium text-gray-200'>
+                    корзина
+                  </span>
+                </Link> */}
               </nav>
             )}
           </div>
         </div>
       </div>
       {matches && (
-        <Drawer isOpen={isDrawerOpen} onClose={handleDrawerMenuClose} />
+        <Drawer 
+          opened={isDrawerOpen} 
+          onClose={handleDrawerMenuClose} 
+          position='right'
+          size={'70%'}
+        >
+          <nav className='flex flex-col gap-y-4 px-4 uppercase'>
+            <Link to={'/catalog'}>
+              <span className='font-medium text-slate-700'>
+                каталог
+              </span>
+            </Link>
+            <Link to={'/about'}>
+              <span className='font-medium text-slate-700'>
+                о нас
+              </span>
+            </Link>
+            <Link to={'/contacts'}>
+              <span className='font-medium text-slate-700'>
+                контакты
+              </span>
+            </Link>
+            <Link to={'/profile'}>
+              <span className='font-medium text-slate-700'>
+                профиль
+              </span>
+            </Link>
+          </nav>
+        </Drawer>
       )} 
     </>
   )
