@@ -9,7 +9,7 @@ function Login({setCurrent}: {setCurrent: (val: CurrentForm) => void}) {
 
   return (
     <form 
-      onSubmit={(e: React.ChangeEvent<HTMLFormElement>) => handleSubmit.login(e)}
+      // onSubmit={(e: React.ChangeEvent<HTMLFormElement>) => handleSubmit.login(e)}
       className='space-y-4'
     >
       <TextInput
