@@ -25,10 +25,10 @@ function Cart() {
   if (cartItems.length === 0) return (
     <div className='h-full w-full grid place-items-center'>
       <div>
-        <h3>Корзина пустая</h3>
+        <h3>Cart is empty</h3>
         <span className='table mx-auto underline mt-4'>
           <Link to={'/catalog'}>
-            Каталог
+            Catalog
           </Link>
         </span>
       </div>
@@ -39,7 +39,7 @@ function Cart() {
     <div className='w-full'>
       <div className="container">
         <div className="space-y-10">
-          <h3 className='mt-10'>Корзина</h3>
+          <h3 className='mt-10'>Cart</h3>
           <div className='border-t border-gray-500'>
             {cartItems.map(flower => {
               return (
@@ -50,10 +50,10 @@ function Cart() {
           <div className='flex flex-col items-end'>
             <div className='space-y-2'>
               <p className='description'>
-                Общая сумма: {cartTotalAmount} ₸
+                Total cost: {cartTotalAmount} ₸
               </p>
               <Button fullWidth onClick={handlePurchase}>
-                Купить
+                Buy
               </Button>
             </div>
           </div>
