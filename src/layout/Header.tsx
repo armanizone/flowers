@@ -31,7 +31,10 @@ function Header() {
             <div className='flex w-full lg:w-fit  justify-between items-center lg:justify-center gap-x-8'>
               <p className='text-gray-200 font-medium '>flowers.bouquets.delivery</p>
               {!matches && (
-                <a href="/">
+                <a            
+                href='https://wa.me/87760009399' 
+                target='_blank'
+              >
                   <span className='text-gray-200'>
                     +7 776 000 93 99
                   </span>
