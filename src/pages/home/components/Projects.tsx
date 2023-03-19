@@ -95,7 +95,7 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
               <img src="https://thumb.tildacdn.com/tild3262-3833-4661-a463-323366306263/-/cover/760x420/center/center/-/format/webp/photo.png" className='w-full' alt="" />
               <p className='description'>Новогодний фасад мастерской @v_nashem_sadu</p>
             </div>
-            <button className='text-sm lg:text-base border border-slate-700 block w-full p-4 text-slate-700 font-medium hover:bg-black hover:text-white transition-all duration-300 ease-in-out'>Получить расчет индивидуального проекта</button>
+            {/* <button className='text-sm lg:text-base border border-slate-700 block w-full p-4 text-slate-700 font-medium hover:bg-black hover:text-white transition-all duration-300 ease-in-out'>Получить расчет индивидуального проекта</button> */}
           </div>
 
         </div>
