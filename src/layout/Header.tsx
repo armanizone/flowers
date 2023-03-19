@@ -32,7 +32,9 @@ function Header() {
               <p className='text-gray-200 font-medium '>flowers.bouquets.delivery</p>
               {!matches && (
                 <a href="/">
-                  <span className='text-gray-200'>+7 977 878 22 02</span>
+                  <span className='text-gray-200'>
+                    +7 776 000 93 99
+                  </span>
                 </a>
               )}
               {matches && (
