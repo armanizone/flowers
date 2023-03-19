@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>((props, ref) => {
   return (
-    <div className='w-full mt-16 md:mt-40' ref={ref}>
+    <div className='w-full mt-16 md:mt-24' ref={ref}>
       <div className="bg-black py-10">
         <div className="container">
           <div className='grid grid-cols-2 md:grid-cols-[2fr_2fr_1fr] gap-y-8'>

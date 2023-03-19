@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../../assets/3.png'
+import hero from '../../../assets/hero.png'
+
 
 function Hero() {
   return (
@@ -37,7 +38,7 @@ function Hero() {
             </div>
           </div>
           <div className="container">
-            <img src="https://static.tildacdn.com/tild6135-6233-4964-b535-633537383764/photo.png" className='min-h-[400px] object-cover' alt="" />
+            <img src={hero} className='min-h-[400px] object-cover' alt="" />
           </div>
         </div>
       {/* </div> */}
