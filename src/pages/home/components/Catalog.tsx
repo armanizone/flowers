@@ -16,9 +16,9 @@ const Catalog = React.forwardRef<HTMLDivElement, React.PropsWithChildren<Catalog
           <div className="bg-black py-6">
             <div className="container">
               <div className="space-y-6 md:space-y-10 py-6">
-                <h2 className='text-white'>каталог</h2>
+                <h2 className='text-white'>Catalog</h2>
                 <p className='description text-gray-200'>
-                Давайте посмотрим на наши бомбезные букеты, которые включают в себя дерзость, природность, уникальность и стиль, создаваемый нами
+                Let’s look at our bombshell bouquets, which include the audacity, the nature, the uniqueness and the style we create
                 </p>
               </div>
             </div>
@@ -29,7 +29,7 @@ const Catalog = React.forwardRef<HTMLDivElement, React.PropsWithChildren<Catalog
                 return (
                   <div key={i}>
                     <h3 className='min-h-[40px] leading-5'>{e.title}</h3>
-                    <Link to={`/flowers/${e.name}`}>
+                    <Link to={`/flowers/${e.id}`}>
                       <img src={getUrl(e, e?.image)} alt="" className='w-full min-h-[200px]' />
                     </Link>
                   </div>

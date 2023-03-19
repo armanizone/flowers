@@ -26,7 +26,7 @@ const Contacts = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
                   <Link to='media'><span className='description text-base'>Сми</span></Link>
                 </span> */}
                 <span>
-                  <Link to='about'><span className='description text-base text-gray-200'>О нас</span></Link>
+                  <Link to='about'><span className='description text-base text-gray-200'>О asd</span></Link>
                 </span>
               </div>
               <div className='flex flex-col space-y-4 order-1 md:order-none'>

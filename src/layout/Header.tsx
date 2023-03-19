@@ -29,7 +29,7 @@ function Header() {
         <div className="container">
           <div className='w-full flex items-center justify-between py-6 lg:py-8'>
             <div className='flex w-full lg:w-fit  justify-between items-center lg:justify-center gap-x-8'>
-              <p className='text-gray-200 font-medium '>цветы.букеты.доставка</p>
+              <p className='text-gray-200 font-medium '>flowers.bouquets.delivery</p>
               {!matches && (
                 <a href="/">
                   <span className='text-gray-200'>+7 977 878 22 02</span>
@@ -47,22 +47,22 @@ function Header() {
               <nav className='space-x-12'>
                 <Link to={'catalog'}>
                   <span className='font-medium text-gray-200'>
-                    каталог
+                    catalog
                   </span>
                 </Link>
                 <Link to={'projects'}>
                   <span className='font-medium text-gray-200'>
-                    проекты
+                    projects
                 </span>
                 </Link>
                 <Link to={'contacts'}>
                   <span className='font-medium text-gray-200'>
-                    контакты
+                    contacts
                   </span>
                 </Link>
                 <Link to={'/cart'}>
                   <span className='font-medium text-gray-200'>
-                    корзина
+                    cart
                   </span>
                 </Link>
               </nav>

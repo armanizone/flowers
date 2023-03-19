@@ -14,7 +14,7 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
             <div className='flex flex-col justify-end lg:mr-16 order-1 lg:order-none mb-10 lg:mb-24'>
               <div className='space-y-10'>
                 <img src="https://thumb.tildacdn.com/tild3061-6462-4233-b461-373332316635/-/cover/360x456/center/center/-/format/webp/_.png" className='max-w-[300px] w-full' alt="" />
-                <div className="description">Бранч в Доме Культур</div>
+                <div className="description">Brunch at the House of Cultures</div>
               </div>
             </div>
           )}
@@ -22,18 +22,18 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
           <div className='space-y-8 lg:space-y-16 col-span-2 order-0 lg:order-none mb-10 lg:mb-24'>
             <div className="space-y-6 lg:space-y-10">
               <h2>
-                проекты
+                projects
               </h2>
               <p className='description'>
-              Реализует идеи по декорации Ваших celebrations, мы прислушиваемся к каждому желанию, просто сообщите. Мы занимаемся оформлением фасадов, витрин, помещений и уличных мероприятий
+              We listen to every wish, just let us know. We are engaged in the design of facades, showcases, premises and street events
               </p>
             </div>
             <div className="space-y-8 lg:space-y-16">
               <div className="space-y-6 lg:space-y-10">
                 <img src="https://thumb.tildacdn.com/tild3238-3863-4434-b362-316135373133/-/cover/760x420/center/center/-/format/webp/IMG_7199-7.png" className='w-full' alt="" />
-                <p className='description'>Оформление ресторана @whiterabbitmoscow</p>
+                <p className='description'>Restaurant decoration @whiterabbitmoscow</p>
               </div>
-              <h2 className='text-3xl lg:text-4xl'>ИССЛЕДУЕМ ВАШИ ОЖИДАНИЯ И РАССКАЗЫВАЕМ О ВАС ЦВЕТАМИ СКВОЗЬ ПРИЗМУ "В НАШЕМ САДУ"</h2>
+              <h2 className='text-3xl lg:text-4xl'>EXPLORE YOUR EXPECTATIONS AND TELL YOUR STORY WITH FLOWERS THROUGH THE PRISM "IN OUR GARDEN"</h2>
             </div>
           </div>
 
@@ -43,7 +43,7 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
               <div className=' lg:mr-16 lg:order-none'>
                 <div className='space-y-6'>
                   <img src="https://thumb.tildacdn.com/tild3061-6462-4233-b461-373332316635/-/cover/360x456/center/center/-/format/webp/_.png" className=' w-full' alt="" />
-                  <div className="description">Бранч в Доме Культур</div>
+                  <div className="description">Brunch at the House of Cultures</div>
                 </div>
               </div>
             </div>

@@ -9,17 +9,17 @@ const Footer = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>
           <div className='grid grid-cols-2 md:grid-cols-[2fr_2fr_1fr] gap-y-8'>
             <div className='col-span-2 md:col-span-1'>
               <h3 className='mb-2 text-white'>В нашем саду</h3>
-              <p className='description mb-8 text-gray-200'>цветы.букеты.доставка</p>
+              <p className='description mb-8 text-gray-200'>flowers.bouquets.delivery</p>
               <p className='description text-gray-200'>
-                Магазин и мастерская <br/> Маркова 39 г.Алматы
+                Shop and workshop, <br/> Markova 39, Almaty 
               </p>
             </div>
             <div className='flex flex-col  space-y-4 order-2 md:order-none'>
               <span>
-                <Link to='catalog'><span className='description text-base text-gray-200'>Каталог</span></Link>
+                <Link to='catalog'><span className='description text-base text-gray-200'>Catalog</span></Link>
               </span>
               <span>
-                <Link to='about'><span className='description text-base text-gray-200'>Проекты</span></Link>
+                <Link to='about'><span className='description text-base text-gray-200'>Projects</span></Link>
               </span>
             </div>
             <div className='flex flex-col space-y-4 order-1 md:order-none'>
@@ -42,7 +42,7 @@ const Footer = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>
                     Whatsapp
                   </span>
                 </a>
-                <a href='projects'><span className='description text-base text-gray-200'>Проекты</span></a>
+                <a href='projects'><span className='description text-base text-gray-200'>Projects</span></a>
             </div>
           </div>
         </div>
