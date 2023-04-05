@@ -1,6 +1,9 @@
 import React from 'react'
 import { useMediaQuery } from '@mantine/hooks';
 
+import up from '../../../assets/up.jpg'
+import down from '../../../assets/down.jpg'
+
 const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>((props, ref) => {
 
   const matches = useMediaQuery('(max-width: 1024px)');
@@ -13,7 +16,7 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
           {!matches && (
             <div className='flex flex-col justify-end lg:mr-16 order-1 lg:order-none mb-10 lg:mb-24'>
               <div className='space-y-10'>
-                <img src="https://thumb.tildacdn.com/tild3061-6462-4233-b461-373332316635/-/cover/360x456/center/center/-/format/webp/_.png" className='max-w-[300px] w-full' alt="" />
+                <img src={down} className='max-w-[300px] w-full' alt="" />
                 <div className="description">Brunch at the House of Cultures</div>
               </div>
             </div>
@@ -30,7 +33,7 @@ const Projects = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
             </div>
             <div className="space-y-8 lg:space-y-16">
               <div className="space-y-6 lg:space-y-10">
-                <img src="https://thumb.tildacdn.com/tild3238-3863-4434-b362-316135373133/-/cover/760x420/center/center/-/format/webp/IMG_7199-7.png" className='w-full' alt="" />
+                <img src={up} className='w-full' alt="" />
                 <p className='description'>Restaurant decoration @whiterabbitmoscow</p>
               </div>
               <h2 className='text-3xl lg:text-4xl'>EXPLORE YOUR EXPECTATIONS AND TELL YOUR STORY WITH FLOWERS THROUGH THE PRISM "IN OUR GARDEN"</h2>
